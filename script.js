@@ -3,8 +3,9 @@ let arrayCartas = ['bobrossparrot.gif', 'explodyparrot.gif', 'fiestaparrot.gif',
 let carta = document.querySelectorAll(".cartas");
 let cartaSelecionada1;
 let cartaSelecionada2;
+let qtdCliques;
 
-while (qtdCartas % 2 !== 0 || qtdCartas > 14 ) { 
+while (qtdCartas % 2 !== 0 || qtdCartas < 4 || qtdCartas > 14 ) { 
     qtdCartas = Number(prompt("Selecione um número par de 4 a 14."));
 }
 
@@ -41,44 +42,30 @@ function mudarEscondido (carta) {
 
 function viradaCarta() {
     mudarEscondido(cartaSelecionada1);
-    mudarEscondido(cartaSelecionada2);
+    mudarEscondido(cartaSelecionada2);    
+}
+
+function cartasIguais () {
+    cartaSelecionada1.classList.add("virada");
+    cartaSelecionada2.classList.add("virada");    
 }
 
 function selecionarCarta (carta) {
     if (!carta.classList.contains("virada")) {
         mudarEscondido (carta);
+        carta.classList.toggle("movimento-carta");  
         if (cartaSelecionada1) {
-            cartaSelecionada2 = carta;
+            cartaSelecionada2 = carta
             if (cartaSelecionada1.innerHTML === cartaSelecionada2.innerHTML) {
-                cartaSelecionada1.classList.add("virada");
-                cartaSelecionada2.classList.add("virada");
-                cartaSelecionada1 = null;
-                cartaSelecionada2 = null;
-            }            
-            else {
-                cartaSelecionada1 = null;
-                cartaSelecionada2 = null;
-                setTimeout(viradaCarta, 3000);
-            }
-        } else {
+                cartasIguais();
+        }   } else {
             cartaSelecionada1 = carta;
         }
-    } else {
-        console.log(carta)
     }
+}
 
-    
-    //ao clicar na carta, precisa verso escondido e frente remover escondido - transição css
-    //if (imagem verso da primeira = imagem verso da segunda) {
-        //permanece com REMOVE escondido
-    //} //else  {
-       // a carta ADD escondido em 1 segundo
-    //}
-    //preciso de uma variável pra pegar quantas vezes o elemento foi clicado ?
-} 
 
 function finalJogo () {
     //if (cada carta selecionada tiver par na tela) {
         //alert (`Você ganhou em ${qtdCliques} jogadas!`)
     }
-//}

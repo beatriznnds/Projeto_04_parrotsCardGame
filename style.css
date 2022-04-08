@@ -47,13 +47,18 @@ h1 {
     transition: transform .5s;
 }
 
-.carta.virar {
-    transform: rotateY(180deg);
-}
 
 .carta:active {
     transform: scale(0.97);
     transition: transform .2s;
+}
+
+.movimento-carta {
+    transform: rotateY(180deg);
+}
+
+.rotacao-carta {
+    transform: rotateY(360deg);
 }
 
 .carta img {
@@ -65,6 +70,4 @@ h1 {
 
 .escondido {
     display: none;
-    transform: rotate(180deg);
 }
-
