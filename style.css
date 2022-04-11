@@ -45,10 +45,11 @@ h1 {
     transform: scale(1);
     transform-style: preserve-3d;
     transition: transform .5s;
+    transform: rotateY(180deg);
 }
 
 
-.carta:active {
+.carta:active  {
     transform: scale(0.97);
     transition: transform .2s;
 }
@@ -57,9 +58,6 @@ h1 {
     transform: rotateY(180deg);
 }
 
-.rotacao-carta {
-    transform: rotateY(360deg);
-}
 
 .carta img {
     width: 100px;
